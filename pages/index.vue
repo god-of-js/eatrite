@@ -1,13 +1,10 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-    <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, perferendis! Consequatur, nulla nesciunt. Voluptates fugit, minima porro reiciendis, nulla corrupti a amet explicabo illo quis eos dolore aut esse. Culpa.
-    </div>
+  <div>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <LazyUiTheButton>Lazy button</LazyUiTheButton>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
