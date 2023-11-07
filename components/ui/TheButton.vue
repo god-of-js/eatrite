@@ -1,7 +1,17 @@
 <script setup lang="ts">
+const variants = {
+  primary: "bg-primary hover:shadow-md",
+};
+const sizes = {
+  sm: "text-xs",
+};
+export type Variants = keyof typeof variants;
+export type Size = keyof typeof sizes;
 interface Props {
   loading?: boolean;
   disabled?: boolean;
+  variant?: Variants;
+  size?: Size;
   type?: "button" | "submit";
   borderedOnlyOnBottom?: boolean;
   rounded?: "none";
@@ -9,6 +19,8 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   type: "submit",
   rounded: "none",
+  variant: "primary",
+  size: "sm",
 });
 const emit = defineEmits<{
   (e: "click"): void;
@@ -17,10 +29,9 @@ const emit = defineEmits<{
 
 <template>
   <button
-    class="flex bg-primary uppercase items-center gap-4 px-4 py-3 app-border"
-    :class="{
-      'b-l-0 b-r-0 b-t-0': props.borderedOnlyOnBottom,
-    }"
+    :class="[
+      `flex uppercase items-center gap-4 px-4 py-3 app-border ${variants[variant]} ${sizes[size]}`,
+    ]"
     :type="props.type"
     :disabled="props.disabled"
     @click="emit('click')"

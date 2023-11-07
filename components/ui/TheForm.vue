@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { computed } from "vue";
-// @ts-ignore
 import type { ValidationArgs } from "@vuelidate/core";
-// @ts-ignore
 import useVuelidate from "@vuelidate/core";
 
 interface Props {
@@ -30,7 +28,6 @@ function validateAndSubmit() {
 
 const formErrors = computed(() => {
   const errorList: Record<string, string> = {};
-  // @ts-ignore
   v$.value.$errors.forEach((err) => {
     errorList[err.$propertyPath] =
       typeof err.$message === "string" ? err.$message : err.$message.value;
