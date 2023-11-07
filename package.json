@@ -31,6 +31,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.1.6",
     "@types/vuelidate": "^0.7.20",
     "@vue/test-utils": "^2.4.1",
     "@vuelidate/core": "^2.0.3",

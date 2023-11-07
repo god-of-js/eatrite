@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'sweet-sans-bold';
+    src: url('./font/SweetSansProBold.woff');
+}
+
+@font-face {
+    font-family: 'sweet-sans-medium';
+    src: url('./font/SweetSansProMedium.woff');
+}
+
+@font-face {
+    font-family: 'sweet-sans-regular';
+    src: url('./font/SweetSansProRegular.woff');
+}
+
+@font-face {
+    font-family: 'sweet-sans-light';
+    src: url('./font/SweetSansProLight.woff');
+}
+
+@font-face {
+    font-family: 'sweet-sans-extra-light';
+    src: url('./font/SweetSansProExLight.woff');
+}
+
+
+.font-sweet-sans-bold {
+    font-family: 'sweet-sans-bold';
+}
+
+.font-sweet-sans-medium {
+    font-family: 'sweet-sans-medium';
+}
+
+.font-sweet-sans-regular {
+    font-family: 'sweet-sans-regular';
+}
+
+.font-sweet-sans-light {
+    font-family: 'sweet-sans-light';
+}
+
+.font-sweet-sans-extra-light {
+    font-family: 'sweet-sans-extra-light';
+}
+
+* {
+    font-family: 'sweet-sans-regular';
+
+}

@@ -4,10 +4,11 @@ interface Props {
   disabled?: boolean;
   type?: "button" | "submit";
   borderedOnlyOnBottom?: boolean;
-  noBorderRadius?: boolean;
+  rounded?: "none";
 }
 const props = withDefaults(defineProps<Props>(), {
   type: "submit",
+  rounded: "none",
 });
 const emit = defineEmits<{
   (e: "click"): void;
@@ -19,7 +20,6 @@ const emit = defineEmits<{
     class="flex bg-primary uppercase items-center gap-4 px-4 py-3 app-border"
     :class="{
       'b-l-0 b-r-0 b-t-0': props.borderedOnlyOnBottom,
-      rounded: !props.noBorderRadius,
     }"
     :type="props.type"
     :disabled="props.disabled"
@@ -29,5 +29,3 @@ const emit = defineEmits<{
     <slot v-else />
   </button>
 </template>
-
-<style scoped></style>
