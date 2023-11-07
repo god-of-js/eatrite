@@ -2,8 +2,8 @@
 
 <template>
   <div>
+    <LazyLayoutTheTopNav />
     <slot />
-    <p>default layout</p>
   </div>
 </template>
 
