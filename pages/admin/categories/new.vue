@@ -9,7 +9,6 @@ definePageMeta({
   layout: "admin",
 });
 const categoryStore = useCategory();
-const config = useRuntimeConfig();
 
 const formData = ref({
   heroImage: null,
@@ -39,7 +38,11 @@ async function createCategory() {
 }
 </script>
 <template>
-  <UiForm :form-data="formData" @form-submit="createCategory">
+  <UiForm
+    :form-data="formData"
+    :rules="formRules"
+    @form-submit="createCategory"
+  >
     <template #default="{ formErrors }"
       ><div>
         <h2 class="text-xl font-bold font-sweet-sans-bold text-center">
