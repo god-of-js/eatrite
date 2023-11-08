@@ -1,12 +1,15 @@
 <script setup lang="ts">
-// @ts-ignore
 import { required } from "@vuelidate/validators";
+import { uuidv4 } from "@firebase/util";
 import { useCategory } from "~/store/category";
+
+import { uploadFile } from "~/api/cloudinary";
 
 definePageMeta({
   layout: "admin",
 });
 const categoryStore = useCategory();
+const config = useRuntimeConfig();
 
 const formData = ref({
   heroImage: null,
@@ -17,9 +20,23 @@ const formRules = {
   heroImage: [required],
   name: [required],
 };
+const loading = ref(false);
 
-function createCategory() {
-  categoryStore.createCategory();
+async function createCategory() {
+  try {
+    console.log(config.FIREBASE_API_KEY, "API KEY");
+    loading.value = true;
+    const heroImageUrl = await uploadFile(formData.value.heroImage!);
+    categoryStore.createCategory({
+      ...formData.value,
+      heroImage: heroImageUrl,
+      _id: uuidv4(),
+    });
+  } catch (err) {
+    console.log(err);
+  } finally {
+    loading.value = false;
+  }
 }
 </script>
 <template>
@@ -46,7 +63,7 @@ function createCategory() {
             label="Collection Name"
             :error="formErrors.name"
           />
-          <UiButton>Create Category</UiButton>
+          <UiButton :loading="loading">Create Category</UiButton>
         </div>
       </div></template
     >

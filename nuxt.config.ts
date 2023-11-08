@@ -9,6 +9,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  runtimeConfig: {
+    FIREBASE_API_KEY: "process.env.FIREBASE_API_KEY",
+    public: {
+      FIREBASE_API_KEY: "process.env.FIREBASE_API_KEY",
+    },
+  },
   typescript: {
     typeCheck: {
       eslint: {
