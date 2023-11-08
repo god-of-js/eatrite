@@ -8,7 +8,7 @@ definePageMeta({
   <div>
     <div class="flex justify-end">
       <NuxtLink to="/admin/categories/new">
-        <UiTheButton>New Category</UiTheButton>
+        <UiButton>New Category</UiButton>
       </NuxtLink>
     </div>
   </div>

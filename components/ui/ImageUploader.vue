@@ -57,7 +57,7 @@ watchEffect(async () => {
 </script>
 
 <template>
-  <UiTheField :name="props.name" :label="props.label" :error="props.error">
+  <UiField :name="props.name" :label="props.label" :error="props.error">
     <input
       ref="inputRef"
       type="file"
@@ -70,7 +70,7 @@ watchEffect(async () => {
       :style="`background-image: url(${fileUrl})`"
       @click.prevent="pickImage"
     >
-      <UiTheIcon v-if="!fileUrl" icon="Image" :size="100" />
+      <UiIcon v-if="!fileUrl" icon="Image" :size="100" />
       <div
         v-else
         class="absolute bg-white text-neutralBlack font-bold font-sweet-sans-bold bottom-0 left-0 right-0 p-1"
@@ -78,5 +78,5 @@ watchEffect(async () => {
         Click to change
       </div>
     </button>
-  </UiTheField>
+  </UiField>
 </template>

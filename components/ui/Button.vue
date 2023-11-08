@@ -30,7 +30,7 @@ const emit = defineEmits<{
 <template>
   <button
     :class="[
-      `flex uppercase items-center gap-4 px-4 py-3 app-border ${variants[variant]} ${sizes[size]}`,
+      `flex w-fit uppercase items-center gap-4 px-4 py-3 app-border ${variants[variant]} ${sizes[size]}`,
     ]"
     :type="props.type"
     :disabled="props.disabled"

@@ -27,7 +27,7 @@ const inputValue = computed({
 </script>
 
 <template>
-  <TheField
+  <UiField
     :name="props.name"
     :error="props.error"
     :label="props.label"
@@ -38,11 +38,11 @@ const inputValue = computed({
       v-model="inputValue"
       :type="props.type"
       v-bind="$attrs"
-      class="w-full bg-gray-200 b-0 b-b-1 text-left text-3 app-border"
+      class="w-full bg-gray-200 b-0 b-b-1 h-11 rounded-lg outline-none px-3 text-left text-3 app-border"
       :class="[{ 'b-red': !!props.error }]"
       p="y-1"
       bg="transparent"
       outline="none active:none"
     />
-  </TheField>
+  </UiField>
 </template>
