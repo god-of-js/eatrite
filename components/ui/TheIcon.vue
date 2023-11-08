@@ -5,6 +5,7 @@ import {
   PhHeart,
   PhUser,
   PhMagnifyingGlass,
+  PhFileImage,
 } from "@phosphor-icons/vue";
 
 const icons = {
@@ -13,6 +14,7 @@ const icons = {
   Heart: PhHeart,
   User: PhUser,
   Search: PhMagnifyingGlass,
+  Image: PhFileImage,
 };
 
 export type Icons = keyof typeof icons;
