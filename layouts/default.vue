@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <LazyLayoutTheTopNav />
+    <LazyLayoutTopNav />
     <LayoutSectionLinks />
     <div class="max-w-screen-xl mx-auto">
       <slot />

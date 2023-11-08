@@ -13,7 +13,7 @@ const routes = [
 
 <template>
   <div>
-    <LayoutTheTopNav />
+    <LayoutTopNav />
 
     <LayoutSectionLinks :routes="routes" />
     <div class="max-w-screen-xl mx-auto">
