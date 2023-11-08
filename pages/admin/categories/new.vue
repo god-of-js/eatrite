@@ -24,7 +24,6 @@ const loading = ref(false);
 
 async function createCategory() {
   try {
-    console.log(config.FIREBASE_API_KEY, "API KEY");
     loading.value = true;
     const heroImageUrl = await uploadFile(formData.value.heroImage!);
     categoryStore.createCategory({
@@ -40,11 +39,7 @@ async function createCategory() {
 }
 </script>
 <template>
-  <UiForm
-    :form-data="formData"
-    :rules="formRules"
-    @form-submit="createCategory"
-  >
+  <UiForm :form-data="formData" @form-submit="createCategory">
     <template #default="{ formErrors }"
       ><div>
         <h2 class="text-xl font-bold font-sweet-sans-bold text-center">
