@@ -17,7 +17,7 @@ const props = defineProps<Props>();
       >{{ props.label }}</label
     >
     <slot />
-    <div v-if="props.error" class="error-text text-left text-3 text-red">
+    <div v-if="props.error" class="text-left text-xs text-danger-500">
       {{ props.error }}
     </div>
     <div v-if="props.suggestion" class="text-left text-3">
