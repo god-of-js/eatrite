@@ -5,9 +5,12 @@ interface Props {
   modelValue: string;
   name: string;
   suggestion?: string;
+  label: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   type: "text",
+  error: "",
+  suggestion: "",
 });
 const emit = defineEmits<{
   (e: "update:modelValue", p: string): void;
@@ -27,6 +30,7 @@ const inputValue = computed({
   <TheField
     :name="props.name"
     :error="props.error"
+    :label="props.label"
     :suggestion="props.suggestion"
   >
     <input
@@ -34,7 +38,7 @@ const inputValue = computed({
       v-model="inputValue"
       :type="props.type"
       v-bind="$attrs"
-      class="w-full b-0 b-b-1 text-left text-3 app-border"
+      class="w-full bg-gray-200 b-0 b-b-1 text-left text-3 app-border"
       :class="[{ 'b-red': !!props.error }]"
       p="y-1"
       bg="transparent"
