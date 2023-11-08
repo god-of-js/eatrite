@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.1.6",
+    "@pinia/nuxt": "^0.5.1",
     "@types/vuelidate": "^0.7.20",
     "@vue/test-utils": "^2.4.1",
     "@vuelidate/core": "^2.0.3",
@@ -40,6 +41,7 @@
     "axios": "^1.6.0",
     "firebase": "^10.5.2",
     "jsdom": "^22.1.0",
+    "pinia": "^2.1.7",
     "vitest": "^0.34.6"
   }
 }

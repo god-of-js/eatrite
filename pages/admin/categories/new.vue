@@ -1,9 +1,12 @@
 <script setup lang="ts">
+// @ts-ignore
 import { required } from "@vuelidate/validators";
+import { useCategory } from "~/store/category";
 
 definePageMeta({
   layout: "admin",
 });
+const categoryStore = useCategory();
 
 const formData = ref({
   heroImage: null,
@@ -16,7 +19,7 @@ const formRules = {
 };
 
 function createCategory() {
-  alert("it gets triggered");
+  categoryStore.createCategory();
 }
 </script>
 <template>

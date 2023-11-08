@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, ref } from "vue";
+import { ref } from "vue";
 
 interface Props {
   name: string;
@@ -65,7 +65,7 @@ watchEffect(async () => {
       accept="image/*"
       @change="handleFileChange"
     />
-    <button
+    <div
       class="bg-gray-200 bg-cover bg-center overflow-hidden w-full shadow-sm relative cursor-pointer hover:bg-gray-300 rounded-lg h-96 flex items-center justify-center text-gray-600"
       :style="`background-image: url(${fileUrl})`"
       @click.prevent="pickImage"
@@ -77,6 +77,6 @@ watchEffect(async () => {
       >
         Click to change
       </div>
-    </button>
+    </div>
   </UiField>
 </template>
