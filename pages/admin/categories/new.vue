@@ -3,13 +3,11 @@ import { required } from "@vuelidate/validators";
 import { uuidv4 } from "@firebase/util";
 import { useCategory } from "~/store/category";
 
-import { uploadFile } from "~/api/cloudinary";
-
 definePageMeta({
   layout: "admin",
 });
 const categoryStore = useCategory();
-
+const { $uploadFile } = useNuxtApp();
 const formData = ref({
   heroImage: null,
   name: "",
@@ -24,7 +22,7 @@ const loading = ref(false);
 async function createCategory() {
   try {
     loading.value = true;
-    const heroImageUrl = await uploadFile(formData.value.heroImage!);
+    const heroImageUrl = await $uploadFile(formData.value.heroImage!);
     categoryStore.createCategory({
       ...formData.value,
       heroImage: heroImageUrl,

@@ -5,6 +5,7 @@ export const useCategory = defineStore({
   state: () => ({}),
   actions: {
     createCategory(category: Category) {
+      useNuxtApp().$signInUser();
       console.log(category);
     },
   },
