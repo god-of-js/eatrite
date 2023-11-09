@@ -1,20 +1,21 @@
-// import {
-//   collection,
-//   getDocs,
-//   doc,
-//   getDoc,
-//   setDoc,
-//   query,
-//   where,
-//   WhereFilterOp,
-// } from "firebase/firestore";
+import {
+  //   collection,
+  //   getDocs,
+  doc,
+  //   getDoc,
+  setDoc,
+  //   query,
+  //   where,
+  //   WhereFilterOp,
+} from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import Category from "~/types/Category";
 
 export default defineNuxtPlugin(() => {
-  const { $auth } = useNuxtApp();
+  const { $auth, $db } = useNuxtApp();
   function createUser() {
     return createUserWithEmailAndPassword($auth, "", "").then(
       ({ user }) => user,
@@ -26,13 +27,17 @@ export default defineNuxtPlugin(() => {
     return signInWithEmailAndPassword($auth, "", "").then(({ user }) => user);
   }
 
-  // function post(
-  //   collectionName: string,
-  //   id: string,
-  //   data: unknown,
-  // ): Promise<unknown> {
-  //   return setDoc(doc(db, collectionName, id), data);
-  // }
+  function createCategory(data: Category): Promise<unknown> {
+    return post("collection", data._id, data);
+  }
+
+  function post(
+    collectionName: string,
+    id: string,
+    data: unknown,
+  ): Promise<unknown> {
+    return setDoc(doc($db, collectionName, id), data);
+  }
 
   // async function getCollection<T>(collectionName: string): Promise<T[]> {
   //   const rawObjects = await getDocs(collection(db, collectionName));
@@ -78,6 +83,7 @@ export default defineNuxtPlugin(() => {
     provide: {
       createUser,
       signInUser,
+      createCategory,
     },
   };
 });

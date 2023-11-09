@@ -23,15 +23,16 @@ async function createCategory() {
   try {
     loading.value = true;
     const heroImageUrl = await $uploadFile(formData.value.heroImage!);
-    categoryStore.createCategory({
+    await categoryStore.createCategory({
       ...formData.value,
       heroImage: heroImageUrl,
       _id: uuidv4(),
     });
   } catch (err) {
-    console.log(err);
+    loading.value = false;
   } finally {
     loading.value = false;
+    alert("finished");
   }
 }
 </script>

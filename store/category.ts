@@ -1,12 +1,22 @@
 import { defineStore } from "pinia";
 import Category from "~/types/Category";
+
+interface CategoryState {
+  categories: Category[];
+}
+const categoryState: CategoryState = {
+  categories: [],
+};
 export const useCategory = defineStore({
   id: "category",
-  state: () => ({}),
+  state: () => categoryState,
   actions: {
     createCategory(category: Category) {
-      useNuxtApp().$signInUser();
-      console.log(category);
+      return useNuxtApp()
+        .$createCategory(category)
+        .then(() => {
+          this.categories.push(category);
+        });
     },
   },
 });
