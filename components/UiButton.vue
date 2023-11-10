@@ -1,9 +1,12 @@
 <script setup lang="ts">
 const variants = {
   primary: "bg-primary hover:shadow-md",
+  neutralBordered:
+    "bg-white hover:bg-gray-800 border text-gray-800 font-sweet-sans-medium hover:text-white border-gray-600 rounded-2xl",
 };
 const sizes = {
-  sm: "text-xs",
+  sm: "text-xs py-2 px-3",
+  large: "px-4 py-3 text-xs",
 };
 export type Variants = keyof typeof variants;
 export type Size = keyof typeof sizes;
@@ -20,7 +23,7 @@ const props = withDefaults(defineProps<Props>(), {
   type: "submit",
   rounded: "none",
   variant: "primary",
-  size: "sm",
+  size: "large",
 });
 const emit = defineEmits<{
   (e: "click"): void;
@@ -30,7 +33,7 @@ const emit = defineEmits<{
 <template>
   <button
     :class="[
-      `flex w-fit uppercase items-center gap-4 px-4 py-3 app-border ${variants[variant]} ${sizes[size]}`,
+      `flex w-fit uppercase items-center gap-4 app-border ${variants[variant]} ${sizes[size]}`,
     ]"
     :type="props.type"
     :disabled="props.disabled"

@@ -17,11 +17,13 @@ const { $router } = useNuxtApp();
 const formData = ref({
   heroImage: null,
   name: "",
+  description: "",
 });
 
 const formRules = {
   heroImage: [required],
   name: [required],
+  description: [required],
 };
 const loading = ref(false);
 
@@ -34,7 +36,7 @@ async function createCategory() {
       heroImage: heroImageUrl,
       _id: uuidv4(),
     });
-    await $router.push({ path: "/admin/categories" });
+    $router.push({ path: "/admin/categories" });
   } catch (err) {
     loading.value = false;
     $toast.error(
@@ -67,8 +69,14 @@ async function createCategory() {
           <UiInput
             v-model="formData.name"
             name="name"
-            label="Collection Name"
+            label="Category Name"
             :error="formErrors.name"
+          />
+          <UiInput
+            v-model="formData.description"
+            name="description"
+            label="Category Description"
+            :error="formErrors.description"
           />
           <UiButton :loading="loading">Create Category</UiButton>
         </div>

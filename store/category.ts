@@ -18,5 +18,13 @@ export const useCategory = defineStore({
           this.categories.push(category);
         });
     },
+    getCategories() {
+      return useNuxtApp()
+        .$getCategories()
+        .then((categories) => {
+          console.log(categories);
+          this.categories = categories;
+        });
+    },
   },
 });

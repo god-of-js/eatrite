@@ -1,8 +1,8 @@
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
-  // collection,
-  //   getDocs,
+  collection,
+  getDocs,
   doc,
   //   getDoc,
   setDoc,
@@ -42,7 +42,11 @@ export default defineNuxtPlugin((app) => {
   }
 
   function createCategory(data: Category): Promise<unknown> {
-    return post("collection", data._id, data);
+    return post("category", data._id, data);
+  }
+
+  function getCategories() {
+    return getCollection<Category>("category");
   }
 
   function post(
@@ -53,13 +57,13 @@ export default defineNuxtPlugin((app) => {
     return setDoc(doc(db, collectionName, id), data);
   }
 
-  // async function getCollection<T>(collectionName: string): Promise<T[]> {
-  //   const rawObjects = await getDocs(collection(db, collectionName));
-  //   return rawObjects.docs.map((doc) => ({
-  //     ...doc.data(),
-  //     id: doc.id,
-  //   })) as unknown as T[];
-  // }
+  async function getCollection<T>(collectionName: string): Promise<T[]> {
+    const rawObjects = await getDocs(collection(db, collectionName));
+    return rawObjects.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    })) as unknown as T[];
+  }
 
   // async function query<T = unknown>({
   //   collectionName,
@@ -98,6 +102,7 @@ export default defineNuxtPlugin((app) => {
       createUser,
       signInUser,
       createCategory,
+      getCategories,
     },
   };
 });
