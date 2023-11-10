@@ -44,6 +44,7 @@
     "jsdom": "^22.1.0",
     "pinia": "^2.1.7",
     "uuidv4": "^6.2.13",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "vue-toast-notification": "^3.1.2"
   }
 }

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import "vue-toast-notification/dist/theme-sugar.css";
+</script>
+
 <template>
   <div>
     <img

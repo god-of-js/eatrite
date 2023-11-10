@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { required } from "@vuelidate/validators";
+import { useToast } from "vue-toast-notification";
+
 import { uuidv4 } from "@firebase/util";
 import { useCategory } from "~/store/category";
 
@@ -8,6 +10,10 @@ definePageMeta({
 });
 const categoryStore = useCategory();
 const { $uploadFile } = useNuxtApp();
+
+const $toast = useToast();
+const { $router } = useNuxtApp();
+
 const formData = ref({
   heroImage: null,
   name: "",
@@ -28,11 +34,15 @@ async function createCategory() {
       heroImage: heroImageUrl,
       _id: uuidv4(),
     });
+    await $router.push({ path: "/admin/categories" });
   } catch (err) {
     loading.value = false;
+    $toast.error(
+      `${(err as { message: string }).message || "Something went wrong"}`,
+    );
   } finally {
     loading.value = false;
-    alert("finished");
+    $toast.success("Category added successfully.");
   }
 }
 </script>
