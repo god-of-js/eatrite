@@ -8,17 +8,17 @@ const categoryState: CategoryState = {
   categories: [],
 };
 export const useCategory = defineStore({
-  id: "category",
+  id: "meal",
   state: () => categoryState,
   actions: {
-    createCategory(category: Category) {
+    createMeal(category: Category) {
       return useNuxtApp()
         .$createCategory(category)
         .then(() => {
           this.categories.push(category);
         });
     },
-    getCategories() {
+    getMeals() {
       return useNuxtApp()
         .$getCategories()
         .then((categories) => {

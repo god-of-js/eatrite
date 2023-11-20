@@ -6,7 +6,7 @@ definePageMeta({
 <template>
   <div>
     <div class="flex justify-end mb-2">
-      <UiButton>Update Category</UiButton>
+      <UiButton>Update Meal</UiButton>
     </div>
   </div>
 </template>

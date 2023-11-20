@@ -72,7 +72,7 @@ async function createCategory() {
             label="Category Name"
             :error="formErrors.name"
           />
-          <UiInput
+          <UiTextArea
             v-model="formData.description"
             name="description"
             label="Category Description"

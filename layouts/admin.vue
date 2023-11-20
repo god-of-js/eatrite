@@ -6,7 +6,7 @@ const routes = [
   },
   {
     title: "Meals",
-    link: "/admin/Meals",
+    link: "/admin/meals",
   },
 ];
 </script>
