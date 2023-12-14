@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { required } from "@vuelidate/validators";
 import { useToast } from "vue-toast-notification";
+import { sizes } from "~/config/constants";
 
 // import { uuidv4 } from "@firebase/util";
 // import { useCategory } from "~/store/meals";
@@ -27,6 +28,8 @@ const formRules = {
   description: [required],
 };
 const loading = ref(false);
+
+const sizingOptions = sizes.map((size) => ({ label: size, value: false }));
 
 function createMeal() {
   try {
@@ -80,7 +83,7 @@ function createMeal() {
               v-model="formData.name"
               name="sizes"
               label="Sizes"
-              :options="[]"
+              :options="sizingOptions"
               :error="formErrors.name"
             />
           </div>

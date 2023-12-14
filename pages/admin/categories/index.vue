@@ -12,7 +12,7 @@ const categories = computed(() => categoryStore.categories);
 
 <template>
   <div>
-    <div class="flex justify-end">
+    <div class="flex justify-end pb-2">
       <NuxtLink to="/admin/categories/new">
         <UiButton>New Category</UiButton>
       </NuxtLink>

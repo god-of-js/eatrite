@@ -12,7 +12,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <label class="checkbox" @click.prevent="emit('toggle')">
+  <label class="checkbox flex gap-3" @click.prevent="emit('toggle')">
     <input
       :checked="props.value"
       :disabled="disabled || loading"
@@ -20,8 +20,6 @@ const emit = defineEmits<{
       class="bg-green"
       :class="{ 'is-loading': loading }"
     />
-    <div>
-      <slot />
-    </div>
+    <slot />
   </label>
 </template>
